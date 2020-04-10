@@ -23,9 +23,9 @@
   "readmeFilename": "README.md",
   "gitHead": "80f9b6fa07591917779b470a3a92c6fe3aadd9fe",
   "devDependencies": {
-    "mocha": "1.9.x",
-    "should": "6.0.x",
-    "mongoose": "~> 4.x"
+    "mocha": "^7.1.1",
+    "mongoose": "^5.9.7",
+    "should": "6.0.x"
   },
   "peerDependencies": {
     "mongoose": "~> 4.x"
