@@ -1,14 +1,14 @@
 {
-  "name": "mongoose-currency",
-  "version": "0.2.0",
-  "description": "Adds schema type \"currency\" to mongoose. Great for converting user input.",
+  "name": "mongoose-currency-brazilian-real",
+  "version": "1.0.0",
+  "description": "Adiciona o tipo 'BrazilianCurrency' ao mongoose para tratar dinheiro. Remove caracteres comuns automaticamente (',', 'R$' e letras do alfabeto).",
   "main": "index.js",
   "scripts": {
     "test": "mocha test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/catalystmediastudios/mongoose-currency.git"
+    "url": "https://github.com/natanaelsimoes/mongoose-currency-brazilian-real.git"
   },
   "keywords": [
     "mongoose",
@@ -16,8 +16,8 @@
     "money"
   ],
   "author": {
-    "name": "Paul Smith",
-    "email": "catalystmediastudios@gmail.com"
+    "name": "Natanael Simões",
+    "email": "natanaelsimoes@gmail.com"
   },
   "license": "MIT",
   "readmeFilename": "README.md",

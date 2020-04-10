@@ -3,11 +3,11 @@ var mongoose = require("mongoose");
 var util = require("util");
 
 module.exports.loadType = function (mongoose) {
-  mongoose.Types.Currency = mongoose.SchemaTypes.Currency = Currency;
-  return Currency;
+  mongoose.Types.BrazilianCurrency = mongoose.SchemaTypes.BrazilianCurrency = BrazilianCurrency;
+  return BrazilianCurrency;
 };
 
-function Currency(path, options) {
+function BrazilianCurrency(path, options) {
   mongoose.SchemaTypes.Number.call(this, path, options);
 }
 
@@ -15,9 +15,9 @@ function Currency(path, options) {
  * inherits
  */
 
-util.inherits(Currency, mongoose.SchemaTypes.Number);
+util.inherits(BrazilianCurrency, mongoose.SchemaTypes.Number);
 
-Currency.prototype.cast = function (val) {
+BrazilianCurrency.prototype.cast = function (val) {
   if (isType("String", val)) {
     var currencyAsString = val.toString();
     var findDigitsAndDotRegex = /\d*\,\d{1,2}/;

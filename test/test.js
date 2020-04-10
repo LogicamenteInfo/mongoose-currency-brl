@@ -1,10 +1,10 @@
 var should = require("should");
 var mongoose = require("mongoose");
-var Currency = require("../index.js").loadType(mongoose);
+var BrazilianCurrency = require("../index.js").loadType(mongoose);
 var Schema = mongoose.Schema;
 
 var ProductSchema = Schema({
-  price: { type: Currency },
+  price: { type: BrazilianCurrency },
 });
 var Product = mongoose.model("Product", ProductSchema);
 
@@ -17,21 +17,21 @@ describe("Currency Type", function () {
     });
   });
 
-  describe("mongoose.Schema.Types.Currency", function () {
+  describe("mongoose.Schema.Types.BrazilianCurrency", function () {
     before(function () {
       var currencyModule = require("../index.js").loadType(mongoose);
     });
-    it("mongoose.Schema.Types should have a type called Currency", function () {
-      mongoose.Schema.Types.should.have.ownProperty("Currency");
+    it("mongoose.Schema.Types should have a type called BrazilianCurrency", function () {
+      mongoose.Schema.Types.should.have.ownProperty("BrazilianCurrency");
     });
-    it("mongoose.Types should have a type called Currency", function () {
-      mongoose.Types.should.have.ownProperty("Currency");
+    it("mongoose.Types should have a type called BrazilianCurrency", function () {
+      mongoose.Types.should.have.ownProperty("BrazilianCurrency");
     });
     it("should be a function", function () {
-      mongoose.Schema.Types.Currency.should.be.a.Function;
+      mongoose.Schema.Types.BrazilianCurrency.should.be.a.Function;
     });
     it("should have a method called cast", function () {
-      mongoose.Schema.Types.Currency.prototype.cast.should.be.a.Function;
+      mongoose.Schema.Types.BrazilianCurrency.prototype.cast.should.be.a.Function;
     });
   });
 
@@ -137,7 +137,7 @@ describe("Currency Type", function () {
   describe("using a schema with advanced options (required, min, max)", function () {
     before(function () {
       var advancedSchema = Schema({
-        price: { type: Currency, required: true, min: 0, max: 200 },
+        price: { type: BrazilianCurrency, required: true, min: 0, max: 200 },
       });
       mongoose.model("AdvancedModel", advancedSchema);
     });
