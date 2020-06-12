@@ -1,3 +1,8 @@
+# Mongoose-Currency-BRL
+
+[![Travis][build-badge]][build]
+[![npm package][npm-badge]][npm]
+
 Menção honrosa a @paulcsmith por disponibilizar o repositório original que tornou este pacote possível.
 
 ## O que isto faz
@@ -12,11 +17,12 @@ Menção honrosa a @paulcsmith por disponibilizar o repositório original que to
 
 ## Como usar
 
-```JavaScript
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+```js
+import mongoose from 'mongoose';
+
 // Adicione o tipo BrazilianCurrency ao Mongoose
-require('mongoose-currency-brazilian-real').loadType(mongoose);
+require('@logicamente.info/mongoose-currency-brl').loadType(mongoose);
+const Schema = mongoose.Schema;
 const BrazilianCurrency = mongoose.Types.BrazilianCurrency;
 
 // Se você não tiver declarado a constante BrazilianCurrency você poderá utilizar 'mongoose.Types.BrazilianCurrency'
@@ -36,7 +42,7 @@ produto.preco; // Número 1200 não irá arredondar ou multiplicar. Armazenada t
 
 Aceita o [esquema de opções de números](http://mongoosejs.com/docs/api.html#schema-number-js) do mongoose.
 
-```JavaScript
+```js
 // Irá validar se o mínimo é R$ 200,00 e o máximo é R$ 500,00
 var ProdutoSchema = Schema({
   preco: { type: BrazilianCurrency, required: true, min: -20000, max: 50000 }
@@ -49,7 +55,7 @@ var ProdutoSchema = Schema({
 
 Para exibir os valores aos usuários finais, lembre-se de chamar `.toFixed(2)` (e na sequência você pode mascarar o resultado)
 
-```JavaScript
+```js
 produto.preco.toFixed(2); // Retorna 1200.55
 ```
 
@@ -60,14 +66,15 @@ Na raiz do diretório do projeto, execute `npm test`
 ## Sacadas
 
 O valor é retornado como um inteiro. Por que? Porque somar dois pontos flutuantes pode causar erros de arredondamento.
-```
+
+```js
 // Isso não é bom
 1.03 + 1.19; // 2.2199999999999998
 ```
 
 ### Cálculos com valores usando mongoose-currency-brazilian-real
 
-```JavaScript
+```js
 const produto1 = Produto.findById('id');
 const produto2 = Produto.findById('id2');
 produto1.preco; // retorna 103 que representa R$ 1,03
@@ -78,7 +85,7 @@ soma.toFixed(2); // retorna um número: 2.22
 
 ### Exibindo valores para usuários finais
 
-```JavaScript
+```js
 const registro = Produto.findById('seuid');
 registro.preco; // 10050 que representa R$ 100,50
 registro.preco.toFixed(2); // retorna 100.50
@@ -86,7 +93,8 @@ registro.preco.toFixed(2); // retorna 100.50
 
 Quando você atribui um inteiro, ele NÃO será multiplicado por 100. Será armazenado tal como é!
 Isto é de propósito, pois esta biblioteca foi criada principalmente para aceitar entradas realizadas por USUÁRIOS.
-```
+
+```js
 produto.preco = 100;
 produto.preco; // Retorna 100 e não multiplica por 100. Representa R$ 1,00
 ```
@@ -103,3 +111,9 @@ Causará muito menos problemas pelo caminhho*
 Para uma leitura mais aprofundada: http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
 
 Apenas lembre-se de chamar `toFixed(2)` toda vez que você quiser exibir os valores para o usuário.
+
+[build-badge]: https://img.shields.io/travis/logicamenteinfo/mongoose-currency-brl/master.png?style=flat-square
+[build]: https://travis-ci.org/logicamenteinfo/mongoose-currency-brl
+
+[npm-badge]: https://img.shields.io/npm/v/@logicamente.info/mongoose-currency-brl.png?style=flat-square
+[npm]: https://www.npmjs.org/@logicamente.info/mongoose-currency-brl

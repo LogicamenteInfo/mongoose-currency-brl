@@ -1,5 +1,5 @@
 {
-  "name": "mongoose-currency-brazilian-real",
+  "name": "@logicamente.info/mongoose-currency-brl",
   "version": "1.0.0",
   "description": "Adiciona o tipo 'BrazilianCurrency' ao mongoose para tratar dinheiro. Remove caracteres comuns automaticamente (',', 'R$' e letras do alfabeto).",
   "main": "index.js",
@@ -8,17 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/natanaelsimoes/mongoose-currency-brazilian-real.git"
+    "url": "https://github.com/logicamenteinfo/mongoose-currency-brl.git"
   },
   "keywords": [
     "mongoose",
     "currency",
     "money"
   ],
-  "author": {
-    "name": "Natanael Simões",
-    "email": "natanaelsimoes@gmail.com"
-  },
+  "author": "Logicamente Info",
+  "homepage": "https://logicamente.info",
   "license": "MIT",
   "readmeFilename": "README.md",
   "gitHead": "80f9b6fa07591917779b470a3a92c6fe3aadd9fe",
